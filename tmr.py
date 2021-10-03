@@ -123,39 +123,47 @@ def ltmc():
 def playinfowin():
 	global piw
 	global i1,i2,i3,i4,i5
-	global match_button,invalid
-	#fenetre infos de joueurs
-	piw = Tk()	#piw: players' information window
+	global invalid,match_button
+	piw=Tk()
 	piw.title("Tennis match referee")
-	piw.iconbitmap("ico/tennis-racket.ico")
+	piw.iconbitmap("C:/Users/hp/OneDrive/Desktop/TennisMatchReffree/ico/tennis-racket.ico")
 	piw.config(bg="#dfff4f")
 	piw.minsize(1080,780)
-	#titres de la fenetre
-	title=Label(piw,text="Welcome to: Tennis match referee",font=("Algerian",40,"bold"),fg="#6f4fff",bg="#dfff4f",pady=10).pack()
-	subtitle1=Label(piw,text="by Adam LOZI",font=("Times New Roman",20,"italic"),fg="#6f4fff",bg="#dfff4f").pack()
-	subtitle2=Label(piw,text="Input match information:",font=("",30,"bold underline"),fg="#6f4fff",bg="#dfff4f",pady=35).pack()
-	#boites de la fenetre
+	#window titles and subtitles
+	title=Label(piw,text="Welcome to: Tennis match referee",font=("Algerian",40,"bold"),fg="#6f4fff",bg="#dfff4f",pady=10)
+	subtitle1=Label(piw,text="by Adam LOZI",font=("Times New Roman",20,"italic"),fg="#6f4fff",bg="#dfff4f")
+	subtitle2=Label(piw,text="Input match information:",font=("",30,"bold underline"),fg="#6f4fff",bg="#dfff4f",pady=35)
+	remark=Label(piw,text="(Do not worry about the capitalization of the letters)",font=("",20,"bold"),fg="#6f4fff",bg="#dfff4f")
+	#window frames
 	frame=Frame(piw,bg='#dfff4f',pady=20)
-	#widgets texte de la fenetre
-	remark=Label(piw,text="(Do not worry about the capitalization of the letters)",font=("",20,"bold"),fg="#6f4fff",bg="#dfff4f").pack()
-	widget1=Label(frame,text="Player one's full name:",font=("Bahnschrift",20),bg="#dfff4f",pady=10).grid(row=0,column=0)
-	widget2=Label(frame,text="Player two's full name:",font=("Bahnschrift",20),bg="#dfff4f",pady=10).grid(row=1,column=0)
-	widget3=Label(frame,text="Number of sets in the match:",font=("Bahnschrift",20),bg="#dfff4f",pady=10).grid(row=2,column=0)
-	widget4=Label(frame,text="Number of games per set:",font=("Bahnschrift",20),bg="#dfff4f",pady=10).grid(row=3,column=0)
-	widget5=Label(frame,text="First serve to player no:",font=("Bahnschrift",20),bg="#dfff4f",pady=10).grid(row=4,column=0)
+	#players' info labels	
+	widget1,widget2,widget3,widget4,widget5=Label(frame,text="Player one's full name:",font=("Bahnschrift",20),bg="#dfff4f",pady=10),Label(frame,text="Player two's full name:",font=("Bahnschrift",20),bg="#dfff4f",pady=10),Label(frame,text="Number of sets in the match:",font=("Bahnschrift",20),bg="#dfff4f",pady=10),Label(frame,text="Number of games per set:",font=("Bahnschrift",20),bg="#dfff4f",pady=10),Label(frame,text="First serve to player no:",font=("Bahnschrift",20),bg="#dfff4f",pady=10)
 	invalid=Label(piw,bg="#dfff4f",font=("",15,"bold"),fg="#FE3434",pady=20)
-	#entrees de la fenetre
+	#players' entrys
 	i1,i2,i3,i4,i5=StringVar(),StringVar(),StringVar(),StringVar(),StringVar()
-	input1=Entry(frame,textvariable=i1,bd=3,relief=SUNKEN).grid(row=0,column=1)
-	input2=Entry(frame,textvariable=i2,bd=3,relief=SUNKEN).grid(row=1,column=1)
-	input3=Entry(frame,textvariable=i3,bd=3,relief=SUNKEN).grid(row=2,column=1)
-	input4=Entry(frame,textvariable=i4,bd=3,relief=SUNKEN).grid(row=3,column=1)
-	input5=Entry(frame,textvariable=i5,bd=3,relief=SUNKEN).grid(row=4,column=1)
+	input1,input2,input3,input4,input5=Entry(frame,textvariable=i1,bd=3,relief=SUNKEN),Entry(frame,textvariable=i2,bd=3,relief=SUNKEN),Entry(frame,textvariable=i3,bd=3,relief=SUNKEN),Entry(frame,textvariable=i4,bd=3,relief=SUNKEN),Entry(frame,textvariable=i5,bd=3,relief=SUNKEN)
 	#boutons de la fenetre
-	match_button=Button(piw,text="Let the match commence!",font=("Magneto",15,"bold"),command=ltmc,bd=10, relief=RIDGE)
-	#affichage
+	match_button=Button(piw,text="Let the match commence!",font=("",15,"bold"),bd=10, relief=RIDGE)
+	#display
+	title.pack()
+	subtitle1.pack()
+	subtitle2.pack()
+	remark.pack()
+
+	widget1.grid(row=0,column=0)
+	widget2.grid(row=1,column=0)
+	widget3.grid(row=2,column=0)
+	widget4.grid(row=3,column=0)
+	widget5.grid(row=4,column=0)
+	input1.grid(row=0,column=1)
+	input2.grid(row=1,column=1)
+	input3.grid(row=2,column=1)
+	input4.grid(row=3,column=1)
+	input5.grid(row=4,column=1)
+
 	frame.pack()
 	invalid.pack()
 	match_button.pack()
+
 	piw.mainloop()
 playinfowin()
