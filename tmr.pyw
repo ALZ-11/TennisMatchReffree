@@ -143,7 +143,7 @@ def playinfowin():
 	i1,i2,i3,i4,i5=StringVar(),StringVar(),StringVar(),StringVar(),StringVar()
 	input1,input2,input3,input4,input5=Entry(frame,textvariable=i1,bd=3,relief=SUNKEN),Entry(frame,textvariable=i2,bd=3,relief=SUNKEN),Entry(frame,textvariable=i3,bd=3,relief=SUNKEN),Entry(frame,textvariable=i4,bd=3,relief=SUNKEN),Entry(frame,textvariable=i5,bd=3,relief=SUNKEN)
 	#boutons de la fenetre
-	match_button=Button(piw,text="Let the match commence!",font=("",15,"bold"),bd=10, relief=RIDGE)
+	match_button=Button(piw,text="Let the match commence!",font=("",15,"bold"),bd=10, relief=RIDGE, command=ltmc)
 	#display
 	title.pack()
 	subtitle1.pack()
